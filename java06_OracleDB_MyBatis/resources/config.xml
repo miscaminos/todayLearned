@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="mybatis_test">
+		<environment id="mybatis_test">
+		<!--  environment 구분을 위한 id -->
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+			<!--  connection만드는데에 가장 긴 시간이 소요됨, so datasource에 pool해두어서 (connection 객체를 미리 생성해두어서) 시간 단축 -->
+			<!--  아래에서 name은 바뀌면 안됨. value를 상황에 맞도록 edit -->
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="username" value="hr" />
+				<property name="password" value="hr" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+       <mapper resource="sqlmap/memberMapper.xml"/>
+       <!-- memberMapper xml과 연결하도록 xml 파일 이름을 추가-->
+    </mappers>
+</configuration>

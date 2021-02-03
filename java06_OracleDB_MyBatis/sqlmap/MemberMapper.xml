@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.member.MemberMapper">
+
+<!-- 검색결과를 자동으로 vo로 변환-->
+<!-- 기존에 jdbc를 사용했을때 resultset 객체를 통해 getString()으로 가져왔던것을 자동 -->
+<!-- resultMap의 id는 resultMap을 명칭하는 것, 여기에서는 "member"라고 지어줌 -->
+
+	<resultMap type="board.member.Member" id="member">
+		<result property="id" column="id" />
+		<result property="pwd" column="pwd" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+	</resultMap>
+	<!-- 여기 쓰인 id는 Maper interface에 선언한 메소드 이름과 동일해야함. 아래 SQL query문을 넣어줌 -->
+	<insert id="addMember" parameterType="board.member.Member">
+		insert into members values(#{id}, #{pwd}, #{name}, #{email})
+	</insert>
+	<select id="getMember" resultMap="member" parameterType="String">
+		select * from members where id=#{id}
+	</select>
+	<select id="getMembers" resultMap="member">
+		select * from members
+	</select>
+	<update id="editMember" parameterType="board.member.Member">
+		update members set pwd=#{pwd}, email=#{email} where id=#{id}
+	</update>
+	<delete id="delMember" parameterType="String">
+		delete from members where id=#{id}
+	</delete>
+</mapper>
+<!-- mapper로 시작했으니 mapper로 끝-->
