@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열 및 String객체 다루기</title>
+<script>
+    function print(n){
+        for(i=0; i<n.length;i++){
+            document.write(n[i]+"<br>");
+        }
+    }
+</script>
+</head>
+
+<body>
+<script>
+    var n = new Array(7);
+    for(i=0;i<n.length;i++){
+        var x = prompt("정수를 입력하세요:");
+        x=parseInt(x);
+        n[i]=x;
+    }
+    print(n);
+    n.reverse();
+    print(n);
+    n.sort(function(a,b){return a-b});
+    //n.sort(); 이방식으로는 정수의 앞 digit를 기준으로 순서대로 정렬해서 
+    //정렬후 23이 100보다 앞으로 정렬될 수 있기때문에 
+    //위와같이 compare function을 사용해야함.
+    print(n);
+
+    var str = prompt("문자열을 입력하세요(문자 사이에 *문자 포함");
+    var group = str.split("*");
+    print(group);
+
+</script>
+</body>
+</html>

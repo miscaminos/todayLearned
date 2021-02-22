@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setInterval & Timer 실습</title>
+</head>
+<body>
+<h3>setInterval() 연습</h3>
+<hr>
+<div>
+    <span id="here"></span>
+</div>
+<button onclick="stopTimer()">멈춤</button>
+<script>
+    var timer = setInterval("myClock()",1000);
+    function myClock(){
+        var date = new Date();
+        document.getElementById("here").innerHTML=date.toLocaleTimeString();
+    }
+    function stopTimer(){
+        clearInterval(timer);
+    }
+</script>
+</body>
+</html>

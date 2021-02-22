@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 만들고 활용하기</title>
+<script>
+
+//prototype사용해서 객체만들기
+function Book(title,author,language,year){
+    this.title=title;
+    this.author=author;
+    this.language=language;
+    this.year=year;
+    this.borrow = function() {document.write(this.title+" is borrowed.<br>");}
+    this.showInfo = function() {
+        document.write("Book Information:<br>");
+        document.write("Book title:"+this.title+"<br>");
+        document.write("Book author:"+this.author+"<br>");
+        document.write("Book language:"+this.language+"<br>");
+        document.write("Book published year:"+this.year+"<br>");
+    }
+}
+
+//new Object()로 객체만들기 + method정의하기
+function borrow() {document.write(this.title+" is borrowed.<br>");}
+function giveback() {document.write(this.title+" is returned.<br>");}
+var book2 = new Book();
+book2.title ="DEF";
+book2.author="def";
+book2.language="Chinese";
+book2.year=2021;
+book2.giveback=giveback;
+
+//Literal표기법으로 객체만들기
+var book3 ={
+    //property생성 및 초기화
+    title : "GHI",
+    author: "ghi",
+    language: "korean",
+    year: 2018,
+    //method작성
+    info: function() {
+        document.write("Book Information:<br>");
+        document.write("Book title:"+this.title+"<br>");
+        document.write("Book author:"+this.author+"<br>");
+        document.write("Book language:"+this.language+"<br>");
+        document.write("Book published year:"+this.year+"<br>");
+    },
+    purchase: function() {document.write(this.title+" is purchased.<br>");},
+    translate: function(newlang){
+        this.language=newlang;
+        document.write(this.title+" is now written in "+this.language+"<br>");
+    }
+};
+
+</script>
+</head>
+<body>
+    <script>
+        //prototype 객체 생성 및 사용
+        var book1 = new Book("ABC","aaa","German",2020);
+        book1.borrow();
+        book1.showInfo();
+        document.write("<br>");
+        book2.borrow();
+        book2.showInfo();
+        book2.giveback();
+        document.write("<br>");
+        book3.purchase();
+        book3.info();
+        book3.translate("french");
+        //book3.giveback(); ==>실행X. book3는 literal표기법 안에있는 method만 호출가능
+
+    </script>
+</body>
+</html>

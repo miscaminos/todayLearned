@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onload로 이미지 크기 출력</title>
+<script>
+    var files =["Arrow.png","MVC.png","Venn.png","python.png"];
+    var imgs = new Array();
+    for(var i=0; i<files.length; i++){
+        imgs[i]=new Image(); //create image object
+        imgs[i].src=files[i]; //image 미리 loading
+    }
+    //다음 이미지 출력
+    var next =1;
+    function change(img){
+        img.src=imgs[next].src; //이미지 변경
+        next++; //다음 이미지 index
+        next %= imgs.length; //개수를 넘으면 처음으로
+    }
+</script>
+</head>
+<body>
+    <h3>new Image()로 이미지 로딩</h3>
+    <hr>
+    이미지를 클릭하면 다음 이미지를 보여줍니다.<br>
+        <img src="Arrow.png" alt="."
+        width="200" height="200"
+        onclick="change(this)">
+</body>
+</html>

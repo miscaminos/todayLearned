@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            innerHTML활용
+        </title>
+        <script>
+            function change(elem) {
+                var element = document.getElementById(elem); // id가 mySpan인 객체 찾기
+                element.style.color = "red"; // 글자 색 green
+                element.style.fontSize = "15px"; // 글자 크기는 30픽셀
+                element.style.display = "block"; // 블록 박스로 변경
+                element.style.width = "15em"; // 박스의 폭. 6 글자 크기
+                element.style.border = "2px dotted magenta"; // 3픽셀 점선 magenta 테두리
+                element.style.margin = "20px"; // 상하좌우 여백 20px
+}
+        </script>
+    </head>
+<body>
+<p id="myPlan" style="color:blue"> My plans:<br>
+<span id="plan1">plan1<br></span>
+<span id="plan2">plan2<br></span>
+<span id="plan3">plan3<br></span>
+<span id="plan4">plan4<br></span>
+<span id="plan5">plan5<br></span>
+<input type="button" value="change font" onclick="change('myPlan')">
+
+<span id="list1" style="color:black">
+<ol>
+    <li>AAAA</li>
+    <li id="item">BBB</li>
+    <li>CCC</li>
+    <input type="button" value="change font" onclick="change('item')">
+</ol></span>
+
+<span id="list2" style="color:green">
+<ul>
+    <li>AAA</li>
+    <li>BBB</li>
+    <li>CCC</li>
+    <input type="button" value="change font" onclick="change('list2')">
+</ul></span>
+
+</p>
+</body>
+</html>

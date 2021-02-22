@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2차 방정식 근 구하기</title>
+
+<script>
+function findRoot(){
+    var A = prompt("2차방정식 A:");
+    a=parseInt(A);
+    var B = prompt("2차방정식 B:");
+    b=parseInt(B);
+    var C = prompt("2차방정식 C:");
+    c=parseInt(C);
+
+    var x1=(-b+Math.sqrt(b*b-(4*a*c)))/(2*a);
+    var x2=(b+Math.sqrt(b*b-(4*a*c)))/(2*a);
+
+    if(a==0) alert("2차방정식이 아님.");
+    else if(isNaN(x1) && isNaN(x2)) alert("근 없음");
+    else if(x1==x2) alert("중근");
+    else if (x1!=x2) alert("서로 다른 두실근");
+    else alert("try again");
+
+    document.write("quadratic equation: "+a+"x^2 + "+b+"x + "+c);
+    document.write("<br/>");
+    document.write("The given quadratic equation's root: "+x1.toPrecision(5)+","+x2.toPrecision(5));
+}
+</script>
+</head>
+<body>
+<img src="quad_eqn.jpg" alt="img">
+<input type=button value="2차 방정식 근 구하기" onclick="findRoot()">
+
+</body>
+</html>

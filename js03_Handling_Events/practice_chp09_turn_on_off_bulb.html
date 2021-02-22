@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #b1{background:lightyellow;}
+        #b2{background:lightgray;}
+    </style>
+</head>
+    <body>
+        <h3>what can javascript do?</h3>
+        <button id="b1" onclick=changeOn()>전구켜기</button>
+        <img id="light" src="lightbulb.jpg" style="width:60px">
+        <button id="b2" onclick=changeOff()>전구끄기</button>
+        <script>
+            function changeOff(){
+                var tag1 = document.getElementById('light');
+                var switchOn = document.getElementById('b1');
+                var switchOff = document.getElementById('b2'); 
+                tag1.src='lightbulb.jpg';
+                switchOn.style.background="lightgray";
+                switchOff.style.background="lightyellow";
+            }    
+            function changeOn(){
+                var tag1 = document.getElementById('light');
+                var switchOn = document.getElementById('b1');
+                var switchOff = document.getElementById('b2');
+                tag1.src='bulbOn.jpg';
+                switchOn.style.background="lightyellow";
+                switchOff.style.background="lightgray";
+            }    
+        </script>
+    </body>
+</html>

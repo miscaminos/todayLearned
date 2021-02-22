@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>dynamic style 구현해보기</title>
+    <style>
+        div {
+        width:400px; 
+        height:150px;
+        border: 1px black solid;
+        padding: 50px;
+        text-align: center;
+        line-height:150px;
+        margin:20px;
+        font-size:30px;
+        }
+    </style>
+    <script>
+        function change(){
+            var p = document.getElementById('div1');
+            p.style.width="350px";
+            p.style.height="100px";
+            p.style.lineHeight="100px";
+            p.style.border="2px black solid";
+            p.style.padding="20px";
+            p.style.borderRadius="30%";
+            p.style.margin="20px";
+            p.style.fontSize="35px";
+            p.style.boxShadow="10px -20px grey";
+        }
+    </script>
+    </head>
+    <body>
+    <h1>What Can JavaScript Do?</h1>
+    <div id='div1'>자바스크립트 입문</div>
+    <input type="button" value="change style" onclick="change()"/>
+    </div>
+    </body>
+</html>

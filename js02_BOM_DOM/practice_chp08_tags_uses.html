@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            page content 변경
+        </title>
+        <script>
+            function change(){
+                //var p = document.getElementById('image').innerHTML="지금부터는 JavaScript를 공부합시다."
+                var pTag = document.getElementById('p1');
+                var bTag = document.getElementById('b1');
+                var iTag = document.getElementById('img1')
+                pTag.innerHTML="지금부터 javascript를 공부합시다.";
+                bTag.style.visibility="hidden";
+                iTag.style.visibility="hidden";
+
+            }
+        </script>
+    </head>
+    <body>
+<p id="p1" style="color:blue">
+지금까지 HTML과 CSS를 공부했습니다.<hr> <img id="img1" src="quad_eqn.jpg" alt="이미지">
+<input id="b1" type="button" value="next" onclick="change()">
+</p>
+</body>
+</html>

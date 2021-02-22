@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onload로 이미지 크기 출력</title>
+<script>
+function imageSize() {
+	var p = document.getElementById("myP");
+	var img = document.getElementById("myImg");
+	img.onload = function () {
+		 // 이미지 크기 출력
+	 	var mySpan = document.getElementById("mySpan");
+		mySpan.innerHTML = img.width + "x" + img.height;
+	}
+	img.src = "superhero.jpg";
+	// 이미지 로딩 시작, 완료 후 onload 리스너 호출
+}
+</script>
+</head>
+<body onload="imageSize()">
+<form>
+<span id="mySpan">이미지 크기</span>
+</form>
+<p><img id="myImg" src="superhero.jpg" alt="." width="300" height="200"></p>
+</body>
+</html>

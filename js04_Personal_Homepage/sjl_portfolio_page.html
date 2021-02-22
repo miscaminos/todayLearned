@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>이소정 Portfolio</title>
+<style>
+    body,html {
+        height:100%;
+        margin: 0;
+        font-family: cursive; 
+        font-size: 28px;
+    }
+    /*배경 이미지 repeat*/
+    #bg-img{
+        background: url(bg_bluegrey.jpg) repeat;   
+    }
+    /*맨위 해더*/
+    .header{
+        background-color: darkslategray;
+        padding:30px;
+        text-align:center;
+        color: whitesmoke;
+    }
+    /*위 메뉴바 스타일*/
+    #topmenu {
+        overflow:hidden;
+        background-color: darkslategray;
+        font-size: 17px;
+        font-family: sans-serif;
+    }
+    /*위 메뉴바 링크글자 스타일*/
+    #topmenu a {
+        float: left;
+        display:block;
+        color: white;
+        text-align: center;
+        text-decoration:none;
+        padding: 17px;
+        font-size: 16px;
+    }
+    /*메뉴바에 마우스 hover시 스타일*/
+    #topmenu a:hover {
+        text-shadow : 2px 2px 6px whitesmoke;
+    }
+    /*폴폴리오 내용적을 공간*/
+    .canvas{
+        margin:80px;
+        padding: 16px;
+        font-family:cursive;
+        font-size: 28px;
+        background-color: white;
+    }
+    /*메뉴 stick시킬때 스타일*/
+    .sticky{
+        position:fixed;
+        top:0;
+        width:100%;
+    }
+    .sticky + .content {
+        padding-top: 60px;
+    }
+    /*가장 최신&주요 프로젝트 3개 추가할 박스*/
+    .column {
+        float: left;
+        width: 24%;
+        padding: 50px;
+        text-align: center;
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+        display:block;
+    }
+    /*프로젝트별 상세정보 display tab*/
+    .containerTab {
+        padding: 20px;
+        color: white;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /*tab닫는 X*/
+    .closebtn {
+        float: right;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+<div id="bg-img">
+    <div class="header">
+        <h1>Sojung Lee</h1>
+        <p>Learning to code and analyze data<br> 
+            for machine learning applications.</p>
+    </div>
+    <div id="topmenu">
+        <a href="#Home">Home</a>
+        <a href="#profile">About</a>
+        <a href="https://github.com/miscaminos?tab=repositories">GitHub</a>
+        <a href="https://velog.io/@miscaminos">Velog</a>
+        <a href="https://blog.naver.com/sojun1221">Blog</a>
+    </div>
+    <div class="canvas" >
+        <p style="text-align:center"> <h3>Recent Projects <br></h3></p>
+            <p style="font-size: 17px; font-family: sans-serif;">click on Projects for more information<br></p>
+        <hr>
+        <div class="row">
+        <div class="column" onclick="openTab('b1');" style="background:grey;">
+            Project 1
+        </div>
+        <div class="column" onclick="openTab('b2');" style="background:darkolivegreen;">
+            Project 2
+        </div>
+        <div class="column" onclick="openTab('b3');" style="background:lightslategrey;">
+            Project 3
+        </div>
+        </div>
+    <!-- project 상세내용 여기에 추가예정 -->
+        <div id="b1" class="containerTab" style="display:none;background:grey">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Project 1</h2>
+        <h1>Topic: Encore Airlines DB Management System</h1>
+        <p>Programming language and tools used: <br>
+            Java<br>
+            ORACLE Relational Database Management System & JDBC<br>
+            MyBatis Persistence Framework<br>
+            <br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            ERD:<br>
+            <img src="Encore_Airlines_ERD.png" width="600px"><br></p>
+        </div>
+    <!-- project 상세내용 여기에 추가예정 -->  
+        <div id="b2" class="containerTab" style="display:none;background:darkolivegreen">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Project 2</h2>
+        <h1>Topic: BBB Analysis Model</h1>
+        <p>Programming language and tools used: <br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            fig:<br>
+            <img src="Venn.png"><br></p>
+        </div>
+    <!-- project 상세내용 여기에 추가예정 -->  
+        <div id="b3" class="containerTab" style="display:none;background:lightslategrey">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <h2>Project 3</h2>
+        <h1>Topic: CCC Analysis Model</h1>
+        <p>Programming language and tools used: <br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            contents<br>
+            fig:<br>
+            <img src="MVC.png" width="500px" height="700px"><br></p>
+        </div>
+    </div>     
+</div>
+<script>
+    //topmenu stick하기위한 js code
+    window.onscroll = function(){ stick() };
+    var menu = document.getElementById("topmenu");
+    var sticky = menu.offsetTop;
+    function stick(){
+        if(window.pageYOffset >= sticky){
+            menu.classList.add("sticky")
+        }
+        else{
+            menu.classList.remove("sticky");
+        }
+    }
+    //canvas안에 column들 tab모양으로 열기위한 js code
+    function openTab(tabName) {
+    var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+    }
+</script>  
+</body>
+</html>

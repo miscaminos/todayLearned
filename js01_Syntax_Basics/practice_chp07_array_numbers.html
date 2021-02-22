@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>배열 다루기</title>
+</head>
+<body>
+<script>
+var n = prompt("총 인원 수");
+n=parseInt(n);
+var people = new Array(n);
+var total=0;
+for(i=0; i<n; i++){
+    var weight = prompt("각 멤버의 몸무게:");
+    weight = parseInt(weight);
+    total+=weight;
+}
+document.write("총 몸무게:"+total);
+document.write("평균 몸무게:"+total/n);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>img obj positioning</title>
+<style>
+div { position : absolute; }
+img { position : absolute; }
+#img1 { z-index :-300; left : 10px; top : 200px; }
+#img2 { z-index : 2; left : 80px; top : 20px; }
+#img3 { z-index : 300; left : 200px; top : 200px; }
+
+</style></head>
+<body>
+<h3>img obj positioning</h3>
+<hr>
+<div>
+	<img id="img1" src="python.png"
+		width="100" height="140" alt="img1">
+	<img id="img2" src="Venn.png"
+		width="100" height="140" alt="img2">
+	<img id="img3" src="MVC.png"
+		width="100" height="140" alt="img3">
+
+</div>
+</body>
+</html>

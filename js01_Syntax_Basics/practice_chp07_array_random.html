@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Math 활용하기</title>
+<script>
+    function randomInt(){
+        return Math.floor(Math.random()*100)+1;
+    }
+</script>
+</head>
+<body>
+    <script>
+        var list = new Array(5);
+        for(i=0; i<list.length;i++)
+            list[i]=randomInt();
+
+        for(i=0;i<list.length;i++){
+            document.write(list[i]);
+            document.write("<br>");
+        }
+
+        var x = Math.max(list[0],list[1],list[2],list[3],list[4]);
+
+        document.write("max number: "+x);
+        if(x%2==0)
+        document.body.style.backgroundColor = "blue";
+        else
+        document.body.style.backgroundColor = "red";
+
+    </script>
+</body>
+</html>
