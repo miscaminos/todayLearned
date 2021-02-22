@@ -5,12 +5,11 @@
 <title>onload로 이미지 크기 출력</title>
 <script>
 function imageSize() {
-	var p = document.getElementById("myP");
-	var img = document.getElementById("myImg");
-	img.onload = function () {
-		 // 이미지 크기 출력
-	 	var mySpan = document.getElementById("mySpan");
-		mySpan.innerHTML = img.width + "x" + img.height;
+	var img = document.getElementById("myImg"); //img DOM객체 확보
+	img.onload = function () { //객체의 eventListener 속성에 익명 function정의
+		var myP = document.getElementById("myP");
+		myP.innerHTML = img.width + "x" + img.height;
+		// 이미지 크기를 출력하기위해 <p>의 innerHTML 내용 입력함
 	}
 	img.src = "superhero.jpg";
 	// 이미지 로딩 시작, 완료 후 onload 리스너 호출
@@ -18,9 +17,8 @@ function imageSize() {
 </script>
 </head>
 <body onload="imageSize()">
-<form>
-<span id="mySpan">이미지 크기</span>
-</form>
-<p><img id="myImg" src="superhero.jpg" alt="." width="300" height="200"></p>
+이미지 크기:<br>
+<p id = "myP"></p>
+<img id="myImg" alt=".">
 </body>
 </html>
