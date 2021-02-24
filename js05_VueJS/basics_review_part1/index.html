@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <title>Tutorial Review 1</title>
+</head>
+<body>
+   <div id="app-review1">
+
+      <h1 v-text="header"></h1>
+      <h3 v-text="topic"></h3>
+
+      <!--vue js에 대한 정보를 선택형 list로 출력-->
+      <input type="radio" name="notes" onclick="app.value=1"><label v-html="note1"></label><br>
+      <input type="radio" name="notes" onclick="app.value=2"><label v-html="note2"></label><br>
+      <input type="radio" name="notes" onclick="app.value=3"><label v-html="note3"></label><br>
+      <input type="radio" name="notes" onclick="app.value=4"><label v-html="note4"></label><br>
+      <input type="radio" name="notes" onclick="app.value=5"><label v-html="note5"></label><br>
+      <input type="radio" name="notes" onclick="app.value=6"><label v-html="note6"></label><br>
+      <input type="radio" name="notes" onclick="app.value=7"><label v-html="note7"></label><br>
+      <input type="radio" name="notes" onclick="app.value=8"><label v-html="note8"></label><br>
+      <input type="radio" name="notes" onclick="app.value=9"><label v-html="note9"></label><br>
+      <input type="radio" name="notes" onclick="app.value=10"><label v-html="note10"></label><br>
+      <hr>
+      
+      <div v-if="value==1">
+        <div v-for="html in htmlLines">
+            {{ html }}<br>
+        </div>
+      </div>
+      <div v-else-if="value==2">
+        <div v-for="js in jsLines">
+            {{ js }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==3">
+        <div v-for="d in d3">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==4">
+        <div v-for="d in d4">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==5">
+        <div v-for="d in d5">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==6">
+        <div v-for="d in d6">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==7">
+        <div v-for="d in d7">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==8">
+        <div v-for="d in d8">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==9">
+        <div v-for="d in d9">
+            {{ d }}<br>
+        </div>
+     </div>
+     <div v-else-if="value==10">
+        <div v-for="d in d10">
+            {{ d }}<br>
+        </div>
+     </div>
+     <hr>
+     <h4>{{demo1}}</h4>
+      <div v-text="message1"></div>
+      <div>{{ resultBind }}</div>
+      <div><input type="text" v-bind:value="resultBind"></div>
+      <br>
+
+      <div v-text="message2"></div>
+      <div>{{ resultModel }}</div>
+      <div><input type="text" v-model="resultModel"></div>
+      <br>
+      <hr>
+      <h4>{{demo2}}</h4>
+      <div v-if="calories>0">
+        <h3>오늘의 칼로리 balance: {{ calories }}</h3>
+     </div>
+     <div v-else>
+        <h2>오늘 다이어트 성공!</h2>
+     </div>
+     <button v-on:click="exercise" v-text="label1"></button>
+     <button v-on:click="eat" v-text="label2"></button>
+     <hr>
+     <h2>위 내용을 모두 확인해보셨나요?</h2>
+     <input type="checkbox" @click="onClickCheckButton">
+        <span>완료시 체크 버튼을 눌러주세요</span>
+    <hr>
+    <div v-show="isChecked" v-html="congrats"></div>
+    <br>
+
+   <!-- index.js를 로드 -->
+   <script src="index.js"></script>
+</body>
+</html>
