@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>튜토리얼16</title>
+</head>
+<body>
+    <div id="app-16">
+        <h1 v-text="header"></h1>
+        <div v-for="message in messages">
+            {{ message }}
+        </div>
+        <hr>
+        <p>
+            <!-- 페이지 이동을 위해 라우터 링크를 사용 -->
+            <!-- <router-link>는 <a>를 사용-->
+            <router-link to="/home">Home페이지로 이동</router-link>
+            <!-- 페이지 이동을 위해 라우터 링크를 사용 -->
+            <router-link to="/about">About페이지로 이동</router-link>
+            <router-link to="/thankyou">Thankyou페이지로 이동</router-link>
+        </p>
+        <!-- 컴포넌트가 여기서 렌더링 됨 -->
+        <router-view></router-view>
+    </div>
+    <!-- index.js를 로드 -->
+    <script src="index.js"></script>
+</body>
+</html>
