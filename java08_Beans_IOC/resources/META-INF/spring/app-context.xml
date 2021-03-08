@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<description>Example configuration to get you started.</description>
+
+<!-- annotation 활용을 위해 아래 라인을 uncomment해야함 -->
+<!-- 	<context:component-scan base-package="spring.sts.sample" /> -->
+
+<!-- bean 활용 -->	
+<!-- <bean id="tv" class="ioc.SamsungTV"></bean> -->
+
+<!--constructor-arg 태그를 통해 생성자로 객체 변수 초기화 -->
+<!--speaker는 AppleSpeaker의 변수임으로, hashcode를 가져가야하기때문에 ref를 사용함. -->
+<!-- <bean id="tv" class="ioc.LgTV" init-method="initMethod"  -->
+<!-- destroy-method="destroyMethod" lazy-init="true"> -->
+<!-- 	<constructor-arg ref="speaker"></constructor-arg> -->
+<!-- 	<constructor-arg value="2700000"></constructor-arg> -->
+<!-- </bean> -->
+
+<!--property태그를 통해 객체 변수 초기화  -->
+<!--property의 name이 있는 setter를 찾아서 사용 -->
+<!-- <bean id="tv" class="ioc.LgTV"> -->
+<!-- 	<property name="speaker" ref="speaker"></property> -->
+<!-- 	<property name="price" ref="price"></property> -->
+<!-- </bean> -->
+
+<!-- p namespace 활용 -->
+<bean id="tv" class="ioc.LgTV" p:speaker-ref="speaker" p:price="270000" p:shop="BestBuy"></bean>
+
+<bean id="speaker" class="ioc.AppleSpeaker"></bean>
+
+</beans>

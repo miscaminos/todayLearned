@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean 태그의 property사용해보기 -->
+<bean id="coll" class="coll.CollectionBean">
+	<property name="proper">
+		<props>
+			<prop key="English">onw two three</prop>
+			<prop key="spanish">uno dos tres</prop>
+		</props>
+	</property>
+	<property name ="list">
+		<list>
+			<value>Porto</value>
+			<value>Lisbon</value>
+			<value>Finnista</value>
+		</list>
+	</property>
+	<property name="map">
+		<map>
+			<entry>
+				<key><value>Portugal</value></key>
+				<value>Lisbon</value>
+			</entry>
+			<entry>
+				<key><value>Spain</value></key>
+				<value>Santiago de Compostela</value>
+			</entry>
+		</map>
+	</property>
+</bean>
+
+</beans>
