@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+  
+    <!--    파일 전송이 있는 경우만 선언, File upload   --> 
+    <bean id="multipartResolver" 
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+    </bean> 
+	
+	<!-- tiles2 설정 --> 
+    <bean id="tilesconfigurer"  
+        class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"> 
+        <property name="definitions"> 
+            <list> 
+                <value>/WEB-INF/spring/bbs.xml</value> 
+            </list> 
+        </property> 
+    </bean>  
+    <bean id="viewResolver"  
+        class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+        <property name="viewClass"> 
+            <value>org.springframework.web.servlet.view.tiles2.TilesView</value> 
+        </property> 
+        <property name="order" value="1"></property>
+    </bean>	
+</beans>
