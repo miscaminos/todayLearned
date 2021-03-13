@@ -15,7 +15,7 @@
 	<!-- webapp>resource 폴더 경로에 원래 여기 표기해서 image와 같은 자원 파일들을 access하지만, 
 	경로 간소화하기위해 resources 폴더 밖에 webapp에 바로 images와 ssi를 넣었다 -->
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<!-- mapping="/**" 는 webapp안에 모든것을 다 가져다 쓸수있다는 것 -->
+	<!-- mapping="/**" 는 webapp(which is the webappRoot)안에 모든것을 다 가져다 쓸수있다는 것 -->
 	<resources mapping="/**" location="/" />
 	
 	<!-- view page를 찾는 ViewResolver -->
@@ -26,8 +26,8 @@
 		<beans:property name="order" value="2" />
 	</beans:bean>
 	
-	<context:component-scan base-package="spring.sts.webtest" />
-	<context:component-scan base-package="spring.model.bbs" />
+	<context:component-scan base-package="spring.sts.practice_spring_mvc01" />
+	<context:component-scan base-package="spring.model.board" />
 	
 	
 </beans:beans>
