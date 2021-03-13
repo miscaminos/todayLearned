@@ -1,4 +1,4 @@
-package spring.sts.PracticeSpringMVC01;
+package spring.sts.practice_spring_mvc01;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,13 +19,13 @@ import spring.model.board.BbsDAO;
 import spring.model.board.BbsDTO;
 import spring.utility.board.Utility;
 
-//요청 들어올 시, dispatcher servlet이 controller안에 get/post 어느방식으로 실행할지 찾고, method를 찾는다
+//요청 들어올 시, dispatcher servlet이 controller안에 Get/Gost/RequestMapping 중 어느방식으로 실행할지 찾고, method를 찾는다
 
 //컴포넌트 스캔을 위해 애노태이션 선언해야 객체 생성됨 
 @Controller
 public class BbsController {
 	
-	//Injection 받아오려면 참조형 dao에 @Repository 
+	//의존하는 객체 주입을 위한 annotation. Injection 받아오려면 참조형 dao에 @Repository를 사용
 	@Autowired
 	private BbsDAO dao;
 	
@@ -33,15 +33,17 @@ public class BbsController {
 	//여기 Controller class안에서 command - command handler mapping을 바로 한다.
 	//이전 action class를 만들었던것을 method로 지정한다 (e.g., create() 메소드)
 	
-	@GetMapping("/bbs/create") //요청 url
-	//get방식으로 "/bbs/create"를 요청하는 경우에만 @GetMapping annotation으로 mapping을 지정할 수 있다
+	@GetMapping("/bbs/create") //"/bbs/create": GetMapping을 요청한 url
+	//get방식으로 "/bbs/create"를 요청이 온 경우, @GetMapping annotation으로 mapping을 지정
 	private String create() {
 		return "/bbs/create"; 
-		//실제 가리키는 파일은 createForm이지만, bbs.xml에서 적은 view name을 적어야해서 "/bbs/create"이다.
+		//view resolver안에서 여기서 반환하는 url을 찾는다.
+		//실제 가리키는 파일은 createForm이지만, bbs.xml에서 설정한대로 view name을 적어야해서 "/bbs/create"이다.
 	}
 	
 	//form에서 request객체에 담은 정보들이 들어올것임.
 	@PostMapping("/bbs/create")
+	//post방식으로 요청이 온 경우, @PostMapping annotation으로 mapping을 지정
 	public String create(BbsDTO dto, HttpServletRequest request) {
 		String basePath = request.getRealPath("/storage");
 		
@@ -50,16 +52,15 @@ public class BbsController {
 			dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), basePath));
 			dto.setFilesize((int)dto.getFilenameMF().getSize());
 		}
-		//OR code를 더 간단하게 만들기 위해, 위 내용을 한줄로 간략하게적어서 setFilename을 지정 할 수도 있다.
-		//dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(),basePath));
 		
 		boolean flag = dao.create(dto);
 		
 		if(flag) {
 			return"redirect:/bbs/list";
-			//여기 문자열의 redirect는 sendRedirect와 동일한 의미.
+			//여기 문자열의 redirect는 sendRedirect와 동일한 의미. view resolver안에서 /bbs/list를 찾는다.
 		}else {
 			return "error";
+			//view resolver에서 error를 찾는다.
 		}
 	}
 	
@@ -75,14 +76,14 @@ public class BbsController {
 			word = "";
 		}
 
-		// 페이지관련-----------------------
+		// 페이지관련
 		int nowPage = 1;// 현재 보고있는 페이지
 		if (request.getParameter("nowPage") != null) {
 			nowPage = Integer.parseInt(request.getParameter("nowPage"));
 		}
 		int recordPerPage = 8;// 한페이지당 보여줄 레코드갯수
 
-		// DB에서 가져올 순번-----------------
+		// DB에서 가져올 순번
 		int sno = ((nowPage - 1) * recordPerPage) + 1;
 		int eno = nowPage * recordPerPage;
 
@@ -135,8 +136,6 @@ public class BbsController {
 			dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), basePath));
 			dto.setFilesize((int)dto.getFilenameMF().getSize());
 		}
-		//OR code를 더 간단하게 만들기 위해, 위 내용을 한줄로 간략하게적어서 setFilename을 지정 할 수도 있다.
-		//dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(),basePath));
 		
 		Map map = new HashMap();
 		map.put("bbsno", dto.getBbsno());
@@ -172,8 +171,6 @@ public class BbsController {
 			dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), basePath));
 			dto.setFilesize((int)dto.getFilenameMF().getSize());
 		}
-		//OR code를 더 간단하게 만들기 위해, 위 내용을 한줄로 간략하게적어서 setFilename을 지정 할 수도 있다.
-		//dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(),basePath));
 		
 		Map map = new HashMap();
 		map.put("grpno", dto.getGrpno());
@@ -194,7 +191,7 @@ public class BbsController {
 	public String delete(int bbsno, Model model) {
 		boolean flag = dao.checkRefnum(bbsno);//dao의 checkRefnum: refnum column에 bbsno가 있으면 부모글이라고 인지한다.
 		model.addAttribute("flag", flag);
-		return "/bbs/delete"; //view resolver 안에서 delete를 찾는다.
+		return "/bbs/delete";
 		
 	}
 	
