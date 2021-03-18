@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="practice.spring.model.reply.ReplyMapper">
+	<!-- parameterType이 갖고있는 변수/객체를 #{ }로 호출해서 아래 query문을 작성한다. -->
+	<delete id="bdelete" parameterType="int">
+		delete from reply
+		where bbsno = #{bbsno} 
+	</delete>
+	<select id="rcount" parameterType="int" resultType="int">
+		select count(*) from reply
+		where bbsno = #{bbsno}
+	</select>
+	<insert id="create" parameterType="ReplyDTO">
+		insert into reply(rnum, content, regdate, id, bbsno)
+		values((select nvl(max(rnum),0)+1 from reply),
+		#{content}, sysdate, #{id}, #{bbsno})
+	</insert>
+	<select id="list" parameterType="Map" resultType="ReplyDTO">
+		select rnum, content, to_char(regdate,'yyyy-mm-dd') regdate, id, bbsno, r
+		FROM(
+			select rnum, content, regdate, id, bbsno, rownum r
+			FROM(
+				select rnum, content, regdate, id, bbsno
+				from REPLY
+				where bbsno = #{bbsno}
+				order by rnum DESC
+			)
+		<![CDATA[
+		)WHERE r >= #{sno} and r <= #{eno}
+		]]>
+	</select>
+	<select id="total" parameterType="int" resultType="int">
+		select count(*) from reply
+		where bbsno = #{bbsno}		
+	</select>
+	<select id="read" parameterType="int" resultType="ReplyDTO">
+		select * from reply
+		where rnum = #{rnum}		
+	</select>
+	<update id="update" parameterType="ReplyDTO">
+		update reply
+		set content = #{content}
+		where rnum = #{rnum}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from reply
+		where rnum = #{rnum}
+	</delete>
+</mapper>

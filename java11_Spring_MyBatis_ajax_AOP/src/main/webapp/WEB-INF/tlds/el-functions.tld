@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+                        web-jsptaglibrary_2_0.xsd" 
+    version="2.0">
+     
+    <description>EL에서 함수실행</description> 
+    <tlib-version>1.0</tlib-version> 
+    <uri>/ELFunctions</uri> 
+    
+    <function>  
+    	<description>직업명 보여주기</description>
+    	<!-- 함수 이름지정 -->
+    	<name>jobname</name>
+    	<!-- 함수가 구현된 클래스 이름 --> 
+    	<function-class>
+    		spring.utility.webtest.Utility
+    	</function-class> 
+    	<function-signature>
+    		java.lang.String getCodeValue(java.lang.String)
+    	</function-signature>
+    </function>
+    	
+    <function>
+        <description>댓글 수 보여주기</description> 
+        <name>rcount</name> <!-- EL표기방식에서 사용할 이름이다 --> 
+        <function-class>                   
+            spring.utility.webtest.Utility
+        </function-class> 
+        <!-- 사용할 method를 정해주는데, class형이나 매개변수형도 package이름까지 다 표기해야좋음 -->
+        <function-signature>    
+            int rcount(int, spring.model.reply.ReplyMapper)
+        </function-signature> 
+    </function> 
+    
+    <function>  
+        <description>이미지 출력</description> 
+        <name>newImg</name> <!-- EL표기방식에서 사용할 이름이다 --> 
+        <function-class>                   
+            spring.utility.webtest.Utility
+        </function-class> 
+        <!-- 사용할 method를 정해주는데, class형이나 매개변수형도 package이름까지 다 표기해야좋음 -->
+        <function-signature>    
+            boolean compareDay( java.lang.String ) 
+        </function-signature> 
+    </function> 
+    
+     
+</taglib>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="webtest">
+		<class>practice.spring.model.bbs.BbsVO</class>
+		<properties>
+			<!-- 필수 속성 -->
+<!-- 			<property name="hibernate.dialect" -->
+<!-- 				value="org.hibernate.dialect.Oracle12cDialect" /> -->
+
+<!--  root-context.xml에서 <데이터베이스 접속 설정> 부분에서 -->
+<!-- 	data source로 이미 지정했기때문에 위 필수속성은 불필요함ㅁ.  -->
+
+			<!-- 옵션 -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="false" />
+			<property name="hibernate.id.new_generator_mappings"
+				value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+		</properties>
+	</persistence-unit>
+</persistence>

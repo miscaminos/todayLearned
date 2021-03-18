@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN" 
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
+
+<tiles-definitions>
+	<!-- bbs.xml에서 이미 정의한 main으로 extend됨. root-context.xml에 bbs.xml와 함께 tiles를 사용하는 것으로 정의했기대문에. -->
+	<!-- so, root-context.xml에 tiles로 함께 묶인 xml에는 definition의 name들이 모두 unique 해야함. -->
+	<definition name="/member/agree" extends="main">
+		<put-attribute name="title" value="약관동의"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/agreement.jsp" />
+	</definition>
+	<definition name="/member/create" extends="main">
+		<put-attribute name="title" value="회원가입"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/createForm.jsp" />
+	</definition>
+	<definition name="/member/login" extends="main">
+		<put-attribute name="title" value="로그인"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
+	</definition>
+	<definition name="/member/read" extends="main">
+		<put-attribute name="title" value="내정보 확인"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/read.jsp" />
+	</definition>
+	<definition name="/member/update" extends="main">
+		<put-attribute name="title" value="내정보 수정"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/updateForm.jsp" />
+	</definition>
+	<definition name="/member/list" extends="main">
+		<put-attribute name="title" value="내정보 수정"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/list.jsp" />
+	</definition>
+		<definition name="/member/updateFile" extends="main">
+		<put-attribute name="title" value="내사진 수정"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/member/updateFileForm.jsp" />
+	</definition>
+</tiles-definitions>

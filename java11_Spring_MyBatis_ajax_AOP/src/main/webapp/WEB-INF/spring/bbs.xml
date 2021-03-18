@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN" 
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
+
+<tiles-definitions> 
+    <definition name="main" template="/WEB-INF/views/template/template.jsp"> 
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" /> 
+    </definition> 
+    <definition name="/home" extends="main">
+       <put-attribute name="title" value="기본페이지"></put-attribute>
+       <put-attribute name="body"
+               value="/WEB-INF/views/home.jsp" />
+   </definition>
+   <definition name="/bbs/create" extends="main"> 
+        <put-attribute name="title" value="bbs 등록" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/createForm.jsp" /> 
+    </definition>   
+   <definition name="/bbs/list" extends="main"> 
+        <put-attribute name="title" value="bbs 목록" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/list.jsp" /> 
+    </definition>   
+   <definition name="/bbs/read" extends="main"> 
+        <put-attribute name="title" value="bbs 조회" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/read.jsp" /> 
+    </definition>   
+   <definition name="/bbs/update" extends="main"> 
+        <put-attribute name="title" value="bbs 수정" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/updateForm.jsp" /> 
+    </definition>   
+   <definition name="/bbs/reply" extends="main"> 
+        <put-attribute name="title" value="bbs 답변" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/replyForm.jsp" /> 
+    </definition>   
+    <definition name="/bbs/delete" extends="main"> 
+        <put-attribute name="title" value="bbs 삭제" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/deleteForm.jsp" /> 
+    </definition> 
+    <definition name="/bbs/delete_Ajax" extends="main"> 
+        <put-attribute name="title" value="bbs Ajax 삭제" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/bbs/delete_Ajax.jsp" /> 
+    </definition> 
+ </tiles-definitions>

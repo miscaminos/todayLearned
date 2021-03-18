@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<!-- mapping="/**" 는 webapp안에 모든것을 다 가져다 쓸수있다는 의미임. -->
+	<mvc:resources mapping="/**" location="/" />
+
+	<!-- view page를 찾는 ViewResolver -->
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
+	</beans:bean>
+
+	<context:component-scan
+		base-package="practice.spring.mvc" />
+	<context:component-scan
+		base-package="practice.spring.model.*" />
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- path: interceptor가 작동해야하는 url을 지정. (e.g., "/admin/**" admin아래 모든 
+				파일 모든 폴더 -->
+			<mvc:mapping path="/admin/**" />
+			<beans:bean
+				class="practice.spring.interceptor.webtest.AdminInterceptor"></beans:bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- Transaction Manager -->
+	<beans:bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="delete" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<!-- Pointcut: 여러 Join points중 하나를 선택한것  -->
+		<aop:pointcut id="transactionPointcut" 
+		expression="execution(* spring.model.bbs.*Service.*(..))" />
+		<!-- advisor가 weaving될 수 있도록 여기에 설정하는 것임. -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionPointcut" />
+	</aop:config>
+	
+	<!-- AOP를 이용해서 transaction을 사용 -->
+	<!-- Transaction Manager JPA -->
+	<beans:bean id="txManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<beans:property name="entityManagerFactory"
+			ref="entityManagerFactory" />
+	</beans:bean>
+	
+	<tx:advice id="txAdvice2" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="insert" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="transactionPointcut2"
+			expression="execution(* practice.spring.model.bbs.*Service.*(..))" />
+		<aop:advisor advice-ref="txAdvice2"
+			pointcut-ref="transactionPointcut2" />
+	</aop:config>
+
+</beans:beans>
