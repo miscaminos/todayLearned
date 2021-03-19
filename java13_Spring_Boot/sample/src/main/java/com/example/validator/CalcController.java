@@ -25,8 +25,10 @@ public class CalcController {
 		if(result.hasErrors()) {
 			return "/calc/form"; //오류로 다시 form으로 되돌아 감.
 		}else {
+			//에러 미 발생이면 정상 처리될 페이지로 데이터를 보낸다
 			int payment = vo.getPrice() * vo.getCount();
 			model.addAttribute("payment", payment);
+			
 			return "/calc/proc";
 		}
 	}

@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+//- RestController는 기본적으로 @ResponseBody를 가지고있다.
+//- Controller로 변경후 문자열 리턴시 @ResponseBody를 명시한다.
+
 @Controller
 public class HelloController {
 	@GetMapping
