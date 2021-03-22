@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="container">
-		<h2>form2.jsp</h2>
+		<h2>form2</h2>
 		<form class="form-horizontal" method="post" action="./calc2">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="menu">메뉴명:</label>

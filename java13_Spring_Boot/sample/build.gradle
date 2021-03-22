@@ -1,7 +1,9 @@
+//Gradle 빌드 명세, 프로젝트에 필요한 라이브러리 관리, 빌드 배포 설정
+
 plugins {
-	id 'org.springframework.boot' version '2.4.4'
+	id 'org.springframework.boot' version '2.4.4' //spring boot version을 명시
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+	id 'java' //자바 버젼 명시
 	id 'war'
 }
 
@@ -10,18 +12,32 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+	mavenCentral() //라이브러리를 받아오는 저장소 설정
 }
 
+ //필요한 라이브러리 의존성을 설정한다. 라이브러리 추가할때마다 변경된다
 dependencies {
+//의존성 옵션:
+//	implementation: 의존 라이브러리 수정시 본 모듈까지만 재빌드(재컴파일)
+//	api: 의존 라이브러리 수정시 본 모듈을 의존하는 모듈들도 재빌드(재컴파일)
+//	compileOnly: compile 시에만 빌드하고 빌드 결과물에는 포함하지 않음
+//	runtime(실행)시 필요없는 라이브러리인 경우 
+//	runtimeOnly: runtime 시에만 필요한 라이브러리인 경우
+//	providedRuntime: 실행시 제공되는 library
+//	testImplementation: 테스트시 관련 library 제공
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //개발편의를 위한 모듈 devtools 추가. 아래 respository 사이트에서 가져온다.
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
     implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.4.3'
+    //jstl사용을 위한 라이브러리 추가
     implementation 'javax.servlet:jstl'
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'  
-
+    //톰캣이 jsp파일을 컴파일할 수 있도록 만들어주는 라이브러리 추가
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    //annotation검증을 위한 spring-boot-starter-validation 설정
+    implementation 'org.springframework.boot:spring-boot-starter-validation' 
   
 }
 

@@ -29,13 +29,13 @@ public class CalcValidator implements Validator {
 		int price = calcVO.getPrice();
 		if(price<1000 || price >=1000000) {
 			System.out.println("금액은 1000원 이상 천만원 이하여야합니다");
-			errors.reject("price","error");
+			errors.rejectValue("price","error");
 		}
 		
 		int count = calcVO.getCount();
 		if(count <=0 || count >=1000) {
 			System.out.println("수량은 1개이상 100개 이하여야합니다");
-			errors.reject("count","error");
+			errors.rejectValue("count","error");
 		}
 		
 
