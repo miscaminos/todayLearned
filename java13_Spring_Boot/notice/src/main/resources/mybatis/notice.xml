@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.model.NoticeMapper">
+<!-- 등록 -->
+  <insert id="create" parameterType="NoticeDTO">
+    INSERT INTO notice(title, content, wname, passwd, rdate)
+    VALUES(#{title}, #{content}, #{wname}, #{passwd}, NOW())
+  </insert>
+<!-- 날짜함수: oracle에서 SYSDATE = mariaDB에서 now() -->
+
+<!-- 목록 -->
+  <select id="list" parameterType="Map" resultType="NoticeDTO">
+	SELECT noticeno, title, wname, cnt, rdate
+	FROM notice
+	<where>
+		<choose>
+			<when test="col=='wname'">
+				wname like CONCAT('%',#{word},'%')
+			</when>
+			<when test="col=='title'">
+				title like CONCAT('%',#{word},'%')
+			</when>
+			<when test="col=='content'">
+				content like CONCAT('%',#{word},'%')
+			</when>
+			<when test="col=='title_content'">
+				title like CONCAT('%',#{word},'%')
+				or
+				content like CONCAT('%',#{word},'%')
+			</when>
+		</choose>
+	</where>
+    ORDER BY noticeno DESC
+    limit #{sno} , #{cnt}
+  </select>
+<!--total-->
+	<select id="total" resultType="int" parameterType="Map">
+		select count(*) from notice
+		<where>
+			<choose>
+				<when test="col=='wname'">
+					wname like CONCAT('%',#{word},'%')
+				</when>
+				<when test="col=='title'">
+					title like CONCAT('%',#{word},'%')
+				</when>
+				<when test="col=='content'">
+					content like CONCAT('%',#{word},'%')
+				</when>
+				<when test="col=='title_content'">
+					title like CONCAT('%',#{word},'%')
+					or
+					content like CONCAT('%',#{word},'%')
+				</when>
+			</choose>
+		</where>
+	</select>
+</mapper>

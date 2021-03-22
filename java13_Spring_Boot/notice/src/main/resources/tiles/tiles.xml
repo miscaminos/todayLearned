@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       <!-- classpath로 잡히고 여기로 와서 tiles -->
+<!-- tiles layout 설정 파일 -->
+<tiles-definitions>
+  <!-- main -->
+  <definition name="main"
+    template="/WEB-INF/views/template/template.jsp">
+    <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+  </definition>
+  <definition name="/home" extends="main">
+    <put-attribute name="title" value="기본페이지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/home.jsp" />
+  </definition>
+  <definition name="/create" extends="main">
+    <put-attribute name="title" value="생성페이지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/createForm.jsp" />
+  </definition>
+  <definition name="/list" extends="main">
+    <put-attribute name="title" value="목록페이지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/list.jsp" />
+  </definition>
+ 
+ 
+</tiles-definitions>
