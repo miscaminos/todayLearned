@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+ <definition name="/cate/create" extends="main">
+    <put-attribute name="title" value="카테고리등록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/create.jsp" />
+  </definition>
+ <definition name="/cate/create_msg" extends="main">
+    <put-attribute name="title" value="등록알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/create_msg.jsp" />
+  </definition>
+ <definition name="/cate/list" extends="main">
+    <put-attribute name="title" value="카테고리목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/list.jsp" />
+  </definition>
+ <definition name="/cate/list_join" extends="main">
+    <put-attribute name="title" value="list_join"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/list_join.jsp" />
+  </definition>
+ <definition name="/cate/list_all" extends="main">
+    <put-attribute name="title" value="list_all"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/list_all.jsp" />
+  </definition>
+ <definition name="/cate/list_join_by_categrpno" extends="main">
+    <put-attribute name="title" value="list_all"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/list_join_by_categrpno.jsp" />
+  </definition>
+ <definition name="/cate/read_update" extends="main">
+    <put-attribute name="title" value="수정"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/read_update.jsp" />
+  </definition>
+ <definition name="/cate/update_msg" extends="main">
+    <put-attribute name="title" value="수정알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/update_msg.jsp" />
+  </definition>
+ <definition name="/cate/read_delete" extends="main">
+    <put-attribute name="title" value="삭제"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/read_delete.jsp" />
+  </definition>
+ <definition name="/cate/delete_msg" extends="main">
+    <put-attribute name="title" value="삭제알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/delete_msg.jsp" />
+  </definition>
+ <definition name="/cate/update_visible_msg" extends="main">
+    <put-attribute name="title" value="출력형식"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/cate/update_visible_msg.jsp" />
+  </definition>
+</tiles-definitions>

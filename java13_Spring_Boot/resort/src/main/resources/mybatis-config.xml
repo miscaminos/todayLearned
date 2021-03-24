@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+	<typeAlias type="com.study.categrp.CategrpVO" alias="CategrpVO" />
+	<typeAlias type="com.study.cate.CateVO" alias="CateVO" />
+	<typeAlias type="com.study.contents.ContentsVO" alias="ContentsVO" />
+	<typeAlias type="com.study.users.UsersVO" alias="UsersVO" />
+  </typeAliases>
+</configuration>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+  <!-- main start -->
+  <definition name="main"
+    template="/WEB-INF/views/menu/template.jsp">
+    <put-attribute name="header"
+      value="/WEB-INF/views/menu/top.jsp" />
+    <put-attribute name="footer"
+      value="/WEB-INF/views/menu/bottom.jsp" />
+  </definition>
+  <!-- main end -->
+  <definition name="/home" extends="main">
+    <put-attribute name="title" value="기본페이지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/index.jsp" />
+  </definition>
+  <definition name="/categrp/create" extends="main">
+    <put-attribute name="title" value="카테고리그룹등록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/create.jsp" />
+  </definition>
+ <definition name="/categrp/create_msg" extends="main">
+    <put-attribute name="title" value="등록알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/create_msg.jsp" />
+  </definition>
+ <definition name="/categrp/list" extends="main">
+    <put-attribute name="title" value="카테고리그룹목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/list.jsp" />
+  </definition>
+ <definition name="/categrp/read_update" extends="main">
+    <put-attribute name="title" value="수정"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/read_update.jsp" />
+  </definition>
+ <definition name="/categrp/update_msg" extends="main">
+    <put-attribute name="title" value="수정알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/update_msg.jsp" />
+  </definition>
+ <definition name="/categrp/read_delete" extends="main">
+    <put-attribute name="title" value="삭제"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/read_delete.jsp" />
+  </definition>
+ <definition name="/categrp/delete_msg" extends="main">
+    <put-attribute name="title" value="삭제알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/delete_msg.jsp" />
+  </definition>
+ <definition name="/categrp/update_seqno_down_msg" extends="main">
+    <put-attribute name="title" value="출력위치조절"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/update_seqno_down_msg.jsp" />
+  </definition>
+  <definition name="/categrp/update_seqno_up_msg" extends="main">
+    <put-attribute name="title" value="출력위치조절"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/categrp/update_seqno_up_msg.jsp" />
+  </definition>
+
+</tiles-definitions>
