@@ -5,7 +5,9 @@
   <typeAliases>
 	<typeAlias type="com.study.categrp.CategrpVO" alias="CategrpVO" />
 	<typeAlias type="com.study.cate.CateVO" alias="CateVO" />
+	<typeAlias type="com.study.cate.Categrp_Cate_join" alias="Categrp_Cate_join"/>
 	<typeAlias type="com.study.contents.ContentsVO" alias="ContentsVO" />
+	<typeAlias type="com.study.contents.Contents_UsersVO" alias="Contents_UsersVO"/>
 	<typeAlias type="com.study.users.UsersVO" alias="UsersVO" />
   </typeAliases>
 </configuration>

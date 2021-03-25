@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.contents.ContentsMapper">
+ <insert id="create" parameterType="ContentsVO">
+    INSERT INTO contents(contentsno, usersno, cateno, title, content, 
+                                    ip, passwd, word, rdate, file1, thumb1, size1)
+    VALUES(contents_seq.nextval, #{usersno}, #{cateno}, #{title}, #{content},
+               #{ip}, #{passwd}, #{word}, sysdate, #{file1}, #{thumb1}, #{size1})
+  </insert> 
+ 
+      
+  <select id="list_by_cateno" resultType="ContentsVO" parameterType="int">
+    SELECT contentsno, usersno, cateno, title, content, ip, passwd, word, rdate, file1, thumb1, size1
+    FROM contents 
+    WHERE cateno = #{cateno}
+    ORDER BY contentsno DESC
+  </select> 
+  
+   <!-- 카테고리별 검색 레코드 갯수 -->
+   <select id="search_count" resultType="int" parameterType="HashMap">
+     SELECT COUNT(*) as cnt
+     FROM contents
+     <choose>
+       <when test="word == null or word == ''"> <!-- 검색하지 않는 경우의 레코드 갯수 -->
+         WHERE cateno=#{cateno}
+       </when>
+       <otherwise> <!-- 검색하는 경우의 레코드 갯수 -->
+         WHERE cateno=#{cateno} AND (title LIKE '%' || #{word} || '%' 
+                                                      OR content LIKE '%' || #{word} || '%' 
+                                                      OR word LIKE '%' || #{word} || '%')
+       </otherwise>
+     </choose>
+   </select>    
+      
+   <!-- 카테고리별 검색 목록 + 페이징 + 메인 이미지  -->
+   <select id="list_by_cateno_search_paging_join" 
+              resultType="Contents_UsersVO" parameterType="HashMap">
+     SELECT contentsno, usersno, cateno, title, content, cnt,  rdate, word, ip,
+               file1, thumb1, size1, mid, r
+     FROM (
+                SELECT contentsno, usersno, cateno, title, content, cnt,  rdate, word, ip,
+                          file1, thumb1, size1,  mid, rownum as r
+                FROM (
+                          SELECT c.contentsno, c.usersno, c.cateno, c.title, c.content, c.cnt, c.rdate, c.word, c.ip,
+                                    c.file1, c.thumb1, c.size1, m.id as mid
+                          FROM contents c, users m
+                          <choose>
+                            <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+                              WHERE cateno=#{cateno} AND c.usersno = m.usersno
+                            </when>
+                            <otherwise>
+                              WHERE cateno=#{cateno} 
+                                        AND c.usersno = m.usersno
+                                        AND (title LIKE '%' || #{word} || '%' 
+                                                OR content LIKE '%' || #{word} || '%' 
+                                                OR word LIKE '%' || #{word} || '%')
+                            </otherwise>
+                          </choose>
+                          ORDER BY contentsno DESC
+                )
+     )
+     WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
+   </select> 
+   
+   
+  <!--  일반적인 조회 -->
+  <select id="read" resultType="ContentsVO" parameterType="int">
+    SELECT contentsno, usersno, cateno, title, content, ip, passwd, word, rdate, file1, thumb1, size1
+    FROM contents
+    WHERE contentsno = #{contentsno}
+  </select>
+    
+  <update id="update" parameterType="ContentsVO">
+    UPDATE contents 
+    SET title=#{title}, content=#{content}, word=#{word}
+    WHERE contentsno=#{contentsno}
+  </update>
+  
+  <select id="passwd_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(*) as passwd_cnt
+    FROM contents
+    WHERE contentsno=#{contentsno} AND passwd=#{passwd}
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    DELETE FROM contents
+    WHERE contentsno=#{contentsno}
+  </delete>
+ 
+  <!-- 첨부 파일 이미지 변경 -->
+  <update id="update_img" parameterType="ContentsVO">
+    UPDATE contents
+    SET file1=#{file1}, thumb1=#{thumb1}, size1=#{size1}
+    WHERE contentsno=#{contentsno} 
+  </update>
+  
+  <select id="total_count" resultType="int">
+    SELECT COUNT(*) as cnt
+    FROM contents
+  </select>
+</mapper>

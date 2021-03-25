@@ -67,7 +67,7 @@
     <TR>
       <TD class="td_bs">${categrpVO.seqno }</TD>
       <TD class="td_bs_left">${categrpVO.name }</TD>
-      <TD class="td_bs">${categrpVO.rdate}</TD>
+      <TD class="td_bs">${categrpVO.rdate.substring(0, 10) }</TD>
       <TD class="td_bs">${categrpVO.visible }</TD>
       <TD class="td_bs">
         <A href="./read_update?categrpno=${categrpno }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>

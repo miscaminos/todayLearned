@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+  <definition name="/contents/create" extends="main">
+    <put-attribute name="title" value="회원가입"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/create.jsp" />
+  </definition>
+  <definition name="/contents/create_msg" extends="main">
+    <put-attribute name="title" value="가입알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/create_msg.jsp" />
+  </definition>
+  <definition name="/contents/update" extends="main">
+    <put-attribute name="title" value="update"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/update.jsp" />
+  </definition>
+  <definition name="/contents/update_msg" extends="main">
+    <put-attribute name="title" value="수정알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/update_msg.jsp" />
+  </definition>
+  <definition name="/contents/delete" extends="main">
+    <put-attribute name="title" value="delete"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/delete.jsp" />
+  </definition>
+  <definition name="/contents/delete_msg" extends="main">
+    <put-attribute name="title" value="삭제알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/delete_msg.jsp" />
+  </definition>
+  <definition name="/contents/read_img" extends="main">
+    <put-attribute name="title" value="삭제알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/read_img.jsp" />
+  </definition>
+  <definition name="/contents/list_by_cateno" extends="main">
+    <put-attribute name="title" value="목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/list_by_cateno.jsp" />
+  </definition>
+  <definition name="/contents/list_by_cateno_grid" extends="main">
+    <put-attribute name="title" value="목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/list_by_cateno_grid.jsp" />
+  </definition>
+  <definition name="/contents/list_by_cateno_search_paging_join" extends="main">
+    <put-attribute name="title" value="목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/list_by_cateno_search_paging_join.jsp" />
+  </definition>
+  <definition name="/contents/list_by_cateno_search_paging" extends="main">
+    <put-attribute name="title" value="목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/list_by_cateno_search_paging.jsp" />
+  </definition>
+  <definition name="/contents/list_by_cateno_search" extends="main">
+    <put-attribute name="title" value="목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/list_by_cateno_search.jsp" />
+  </definition>
+  <definition name="/contents/img_create" extends="main">
+    <put-attribute name="title" value="img_create"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/img_create.jsp" />
+  </definition>
+  <definition name="/contents/img_update" extends="main">
+    <put-attribute name="title" value="img_update"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/contents/img_update.jsp" />
+  </definition>
+</tiles-definitions>

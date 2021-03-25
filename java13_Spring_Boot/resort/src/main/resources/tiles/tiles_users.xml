@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+<definition name="/users/create" extends="main">
+    <put-attribute name="title" value="회원가입"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/create.jsp" />
+  </definition>
+ <definition name="/users/create_msg" extends="main">
+    <put-attribute name="title" value="가입알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/create_msg.jsp" />
+  </definition>
+ <definition name="/users/list" extends="main">
+    <put-attribute name="title" value="회원목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/list.jsp" />
+  </definition>
+ <definition name="/users/read" extends="main">
+    <put-attribute name="title" value="read"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/read.jsp" />
+  </definition>
+ <definition name="/users/update_msg" extends="main">
+    <put-attribute name="title" value="update_msg"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/update_msg.jsp" />
+  </definition>
+ <definition name="/users/session" extends="main">
+    <put-attribute name="title" value="list_all"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/session.jsp" />
+  </definition>
+ <definition name="/users/passwd_update" extends="main">
+    <put-attribute name="title" value="비번수정"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/passwd_update.jsp" />
+  </definition>
+ <definition name="/users/passwd_update_msg" extends="main">
+    <put-attribute name="title" value="비번수정알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/passwd_update_msg.jsp" />
+  </definition>
+ <definition name="/users/read_delete" extends="main">
+    <put-attribute name="title" value="삭제"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/read_delete.jsp" />
+  </definition>
+ <definition name="/users/delete_msg" extends="main">
+    <put-attribute name="title" value="삭제알림"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/delete_msg.jsp" />
+  </definition>
+ <definition name="/users/update_visible_msg" extends="main">
+    <put-attribute name="title" value="출력형식"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/update_visible_msg.jsp" />
+  </definition>
+ <definition name="/users/mconfirm_fail_msg" extends="main">
+    <put-attribute name="title" value="메세지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/mconfirm_fail_msg.jsp" />
+  </definition>
+  <definition name="/users/login_ck_form" extends="main">
+    <put-attribute name="title" value="로그인"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/login_ck_form.jsp" />
+  </definition>
+  <definition name="/users/login_need" extends="main">
+    <put-attribute name="title" value="로그인필요"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/login_need.jsp" />
+  </definition>
+  <definition name="/users/login_fail_msg" extends="main">
+    <put-attribute name="title" value="로그인실패"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/login_fail_msg.jsp" />
+  </definition>
+  <definition name="/users/logout_msg" extends="main">
+    <put-attribute name="title" value="로그인실패"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/users/logout_msg.jsp" />
+  </definition>
+</tiles-definitions>

@@ -16,7 +16,7 @@ public class Categrp_Cate_join {
 	private String name;
 	private int seqno;
 	private String visible;
-	private Date rdate;
+	private String rdate;
 	private int cnt;
 	
 }

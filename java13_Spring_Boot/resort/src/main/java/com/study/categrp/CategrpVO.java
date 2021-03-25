@@ -1,7 +1,5 @@
 package com.study.categrp;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
@@ -15,5 +13,5 @@ public class CategrpVO {
 	  /** 출력 모드 */
 	  private String visible;
 	  /** 등록일 */
-	  private Date rdate;
+	  private String rdate;
 }

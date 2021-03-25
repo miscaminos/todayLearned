@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.users.UsersMapper">
+ <select id="checkID" resultType="int" parameterType="String">
+    SELECT COUNT(id) as cnt
+    FROM users
+    WHERE id=#{id}
+  </select>
+  
+  <insert id="create" parameterType="UsersVO">
+    INSERT INTO users(usersno, id, passwd, name, tel, zipcode, address1, address2, rdate)
+    VALUES (users_seq.nextval, #{id}, #{passwd}, #{name}, #{tel}, #{zipcode}, 
+                 #{address1}, #{address2}, sysdate)
+  </insert>
+
+  <select id="list" resultType="UsersVO">
+    SELECT usersno, id, passwd, name, tel, zipcode, address1, address2, rdate
+    FROM users
+    ORDER BY usersno ASC
+  </select>
+  
+  <!-- usersno로 회원 정보 조회 -->
+  <select id="read" resultType="UsersVO" parameterType="int">
+    SELECT usersno, id, passwd, name, tel, zipcode, address1, address2, rdate
+    FROM users
+    WHERE usersno = #{usersno}
+  </select>  
+
+  <!-- id로 회원 정보 조회 -->
+  <select id="readById" resultType="UsersVO" parameterType="String">
+    SELECT usersno, id, passwd, name, tel, zipcode, address1, address2, rdate
+    FROM users
+    WHERE id = #{id}
+  </select>
+  
+  <update id="update" parameterType="UsersVO">
+    UPDATE users 
+    SET name=#{name}, tel=#{tel}, zipcode=#{zipcode},
+          address1=#{address1}, address2=#{address2}
+    WHERE usersno=#{usersno}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM users
+    WHERE usersno=#{usersno}
+  </delete>
+
+  <!--  현재 패스워드 검사 -->
+  <select id="passwd_check" parameterType="HashMap" resultType="int">
+    SELECT COUNT(usersno) as cnt
+    FROM users
+    WHERE usersno=#{usersno} AND passwd=#{passwd}
+  </select>
+  
+  <!-- 패스워드 변경 -->
+  <update id="passwd_update" parameterType="HashMap">
+    UPDATE users
+    SET passwd=#{passwd}
+    WHERE usersno=#{usersno}
+  </update>
+  
+  <select id="login" resultType="int" parameterType="Map">
+    SELECT COUNT(usersno) as cnt
+    FROM users
+    WHERE id=#{id} AND passwd=#{passwd}
+  </select>
+</mapper>

@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE categrpno=#{categrpno}
   </update>
  
-  <!-- Visible 수정, id: update_visible, 입력: Map, 리턴: int -->
+  <!-- Visible 수정, id: update_visible, 입력: CategrpVO, 리턴: int -->
   <update id="update_visible" parameterType="Map">
     UPDATE categrp
     SET visible=#{visible}

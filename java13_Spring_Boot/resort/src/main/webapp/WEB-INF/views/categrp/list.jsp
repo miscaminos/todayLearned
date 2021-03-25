@@ -11,17 +11,17 @@
  
 <link href="../css/style.css" rel="Stylesheet" type="text/css">
  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
 <script type="text/javascript">
  
+  
 </script>
+ 
 </head> 
  
 <body>
@@ -46,7 +46,7 @@
       </select>
        
       <button type="submit" id='submit'>등록</button>
-      <button type="reset">취소</button>
+      <button type="reset" >취소</button>
     </FORM>
   </DIV>
  
@@ -76,7 +76,7 @@
     <TR>
       <TD class="td_bs">${categrpVO.seqno }</TD>
       <TD class="td_bs_left"><A href="../cate/list?categrpno=${categrpno }">${categrpVO.name }</A></TD>
-      <TD class="td_bs">${categrpVO.rdate }</TD>
+      <TD class="td_bs">${categrpVO.rdate.substring(0, 10) }</TD>
       
       <TD class="td_bs">
         <c:choose>

@@ -27,7 +27,7 @@
  
   <DIV class='title_line'>
     <A href="../categrp/list">카테고리 그룹</A> > 
-    <A href="../cate/list?categrpno=${categrpVO.categrpno}">${categrpVO.name} (${categrpVO.rdate })</A>
+    <A href="../cate/list?categrpno=${categrpVO.categrpno}">${categrpVO.name } (${categrpVO.rdate.substring(0, 10) })</A>
   </DIV>
  
   <DIV id='panel_create' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
@@ -95,7 +95,7 @@
       <TD class="td_bs">${categrp_name }</TD>
       <TD class="td_bs">${seqno }</TD>
       <TD class="td_bs_left"><A href="../contents/list?cateno=${cateno }&categrpno=${categrpno}">${name }</A></TD>
-      <TD class="td_bs">${rdate}</TD>
+      <TD class="td_bs">${rdate.substring(0, 10) }</TD>
       <TD class="td_bs">
         <c:choose>
           <c:when test="${visible == 'Y'}">

@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
-  <!-- main start -->
+  <!-- main -->
   <definition name="main"
     template="/WEB-INF/views/menu/template.jsp">
     <put-attribute name="header"
@@ -12,7 +12,6 @@
     <put-attribute name="footer"
       value="/WEB-INF/views/menu/bottom.jsp" />
   </definition>
-  <!-- main end -->
   <definition name="/home" extends="main">
     <put-attribute name="title" value="기본페이지"></put-attribute>
     <put-attribute name="body"
