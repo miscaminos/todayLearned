@@ -2,12 +2,13 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<!-- Spring framework 시작하면서, spring이 사용하는 memory영역 "Context"가 생성됨.-->
-	<!-- 이때, spring의 ApplicationContext객체가 생성되고 + spring 자신의 객체들을 관리 및 설정 할 정보를 servlet-context.xml에 작성함. -->
-	<!-- servlet-context.xml에 설정되어있는 <context:component-scan>에 지정된 package를 scan함. -->
-	<!-- 해당 package의 클래스들 중 @Component가 표기되어있는 클래스의 객체를 spring이 자동 생성함. -->
+	<!-- web.xml의 역할 -->
+	<!-- 1. client의 요청을 전달 받을 Dispatcher Servlet 설정 (application conetxt 설정)-->
+	<!-- 2. 공통으로 사용할 application resources 설정-->
+	<!-- 3. 필요한 filter 추가 (한글처리 할 filter 설정) -->
 	
-	<!-- 1. 공통으로 사용할 application context 설정 -->
+	
+	<!-- 2. 공통으로 사용할 application resources 설정 -->
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
 	<context-param>
@@ -19,7 +20,8 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
-	<!-- 2. 클라이언트의 요청을 전달받을 DispatcherServlet 설정 -->
+
+	<!-- 1. 클라이언트의 요청을 전달받을 DispatcherServlet 설정 -->
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
@@ -32,10 +34,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<!-- 3. 한글 처리용 filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
