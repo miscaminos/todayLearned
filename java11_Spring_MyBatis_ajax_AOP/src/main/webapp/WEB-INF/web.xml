@@ -2,13 +2,13 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<!-- web.xml의 역할(2) -->
-	<!-- 1. client의 요청을 전달 받을 Dispatcher Servlet 설정 -->
-	<!-- 2. 공통으로 사용할 application context 설정 -->
+	<!-- web.xml의 역할 -->
+	<!-- 1. client의 요청을 전달 받을 Dispatcher Servlet 설정 (application conetxt 설정)-->
+	<!-- 2. 공통으로 사용할 application resources 설정-->
 	<!-- 3. 필요한 filter 추가 (한글처리 할 filter 설정) -->
 	
 	
-	<!-- 2. 공통으로 사용할 application context 설정 -->
+	<!-- 2. 공통으로 사용할 application resources 설정 -->
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
 	<context-param>
@@ -39,7 +39,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
 	<!-- 3. 한글 처리용 filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
