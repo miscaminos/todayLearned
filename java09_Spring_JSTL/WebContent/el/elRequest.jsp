@@ -12,13 +12,14 @@
 </head>
 <body>
 <h2>
-	request의 name 속성(표현방식): <%=request.getAttribute("name") %><br>
-	request의 name 속성(스크립틀릿 방식): 
+	request의 name 속성(스크립틀릿 방식: 출력): <%=request.getAttribute("name") %><br>
+	request의 name 속성(스크립틀릿 방식: assign & print): 
 	<% String name = (String)request.getAttribute("name"); 
+		out.print(name);
 	%>
 	<br>
-	request의 name 속성(el방식):${requestScope.name}<br>
-	request의 name 속성(el방식):${name}
+	request의 name 속성(el방식: requestScope.name):${requestScope.name}<br>
+	request의 name 속성(el방식: name):${name}
 </h2>
 </body>
 </html>

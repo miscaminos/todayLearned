@@ -37,7 +37,7 @@
 
 <h4>Map</h4>
 <c:forEach var="i" items="${map }">
-	${i.key }=${i.value }
+	${i.key }=${i.value }<br>
 </c:forEach>
 	
 </body>

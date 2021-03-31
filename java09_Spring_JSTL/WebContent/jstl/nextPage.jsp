@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.Date"%>
     <%
-    String day = (String)request.getParameter("today");
+    String today = (String)request.getParameter("today");
     %>
 <!DOCTYPE html>
 <html>
@@ -10,6 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-오늘은 <b> <%=day %></b>입니다.<br>
+오늘은 <b> <%=today %></b>입니다.<br>
 </body>
 </html>

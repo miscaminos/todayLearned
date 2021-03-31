@@ -19,7 +19,7 @@ int avg = (Integer)request.getAttribute("avg");
 </head>
 <body>
 <h2>
-스크리비틀릿(Scriptlet) 방식:<br>
+스크립틀릿(Scriptlet) 방식:<br>
 <% 
 out.println("성명: "+name+"<br>");
 out.println("총점: "+tot+"<br>");

@@ -26,6 +26,8 @@ EL 사용하지 않는 경우<br><br>
 EL 사용하는 경우<br><br>
 영화명: ${requestScope.dto.movie}<br><br>
 주 연: ${requestScope.dto.name}<br><br>
+배 우(X): ${param.dto.name}<br><br>
+dto(X): ${param.dto}<br><br>
 Type2: 주 연:${dto.movie}=${dto.name}<br><br>
 Type3: 주 연(X): ${requestScope.movie}<br><br> 
 Type4: 주 연(X): ${movie}<br><br> 

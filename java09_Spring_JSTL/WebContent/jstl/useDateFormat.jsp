@@ -10,8 +10,7 @@
 <fmt:formatDate value="${now}" type="date" dateStyle="full" /> <br> 
 <fmt:formatDate value="${now}" type="date" dateStyle="short" /> <br> 
 <fmt:formatDate value="${now}" type="time" /> <br> 
-<fmt:formatDate value="${now}" type="both"  
-                dateStyle="full" timeStyle="full" /> <br> 
+<fmt:formatDate value="${now}" type="both" dateStyle="full" timeStyle="full" /> <br> 
 <fmt:formatDate value="${now}" pattern="z a h:mm" /> <br> 
 
 </body> 
