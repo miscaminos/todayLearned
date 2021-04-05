@@ -24,11 +24,11 @@
   </DIV>
 
   <ASIDE class="aside_right">
-    <A href="./create?cateno=${param.cateno }">등록</A>
+    <A href="./create?cateno=${cateVO.cateno }">등록</A>
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list?cateno=${param.cateno }">기본 목록형</A>    
+    <A href="./list?cateno=${cateVO.cateno }">기본 목록형</A>    
   </ASIDE> 
   <DIV class='menu_line'></DIV>
   
@@ -40,7 +40,7 @@
       <c:set var="title" value="${contentsVO.title}" />
       <c:set var="cnt" value="${contentsVO.cnt}" />
       <c:set var="rdate" value="${contentsVO.rdate}" />
-      <c:set var="memberno" value="${contentsVO.memberno}" />
+      <c:set var="memberno" value="${contentsVO.usersno}" />
       <c:set var="file1" value="${contentsVO.file1}" />
       <c:set var="size1" value="${contentsVO.size1}" />
 

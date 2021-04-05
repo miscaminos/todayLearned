@@ -43,7 +43,7 @@
                 enctype="multipart/form-data">
                
       <!-- FK memberno 지정 -->
-      <input type='hidden' name='memberno' id='memberno' value='1'>
+      <input type='hidden' name='usersno' id='usersno' value='1'>
       <!-- FK categrpno 지정 -->
       <input type='hidden' name='cateno' id='cateno' value="${param.cateno }">
       
@@ -77,7 +77,7 @@
     <c:if test="${file1.endsWith('jpg') || file1.endsWith('png') || file1.endsWith('gif')}">
       <FORM name='frm' method='POST' action='./img_delete' class="form-horizontal">
         <!-- FK memberno 지정 -->
-        <input type='hidden' name='memberno' id='memberno' value='1'>
+        <input type='hidden' name='usersno' id='usersno' value='1'>
         <!-- FK categrpno 지정 -->
         <input type='hidden' name='cateno' id='cateno' value="${param.cateno }">
         <input type='hidden' name='contentsno' id='contentsno' value="${param.contentsno }">

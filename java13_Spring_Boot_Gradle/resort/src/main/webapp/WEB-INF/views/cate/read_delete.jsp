@@ -74,7 +74,7 @@
       <TR>
         <TD class="td_bs">${cateVO.categrpno }</TD>
         <TD class="td_bs">${cateVO.seqno }</TD>
-        <TD class="td_bs_left"><A href="./read_update?cateno=${cateno }">${cateVO.name }</A></TD>
+        <TD class="td_bs_left"><A href="./read_update?cateno=${cateVO.cateno }&categrpno=${param.categrpno}">${cateVO.name }</A></TD>
         <TD class="td_bs">${cateVO.rdate.substring(0, 10) }</TD>
         <TD class="td_bs">
           <c:choose>
@@ -88,10 +88,10 @@
         </TD>
         <TD class="td_bs">${cateVO.cnt }</TD>
         <TD class="td_bs">
-        <A href="./read_update?cateno=${cateno }&categrpno=${categrpno}"><span class="glyphicon glyphicon-pencil"></span></A>
-        <A href="./read_delete?cateno=${cateno }&categrpno=${categrpno}"><span class="glyphicon glyphicon-trash"></span></A>
-        <A href="./update_seqno_up?cateno=${cateno }&categrpno=${categrpno}"><span class="glyphicon glyphicon-arrow-up"></span></A>
-        <A href="./update_seqno_down?cateno=${cateno }&categrpno=${categrpno}"><span class="glyphicon glyphicon-arrow-down"></span></A>         
+        <A href="./read_update?cateno=${cateno }&categrpno=${param.categrpno}"><span class="glyphicon glyphicon-pencil"></span></A>
+        <A href="./read_delete?cateno=${cateno }&categrpno=${param.categrpno}"><span class="glyphicon glyphicon-trash"></span></A>
+        <A href="./update_seqno_up?cateno=${cateno }&categrpno=${param.categrpno}"><span class="glyphicon glyphicon-arrow-up"></span></A>
+        <A href="./update_seqno_down?cateno=${cateno }&categrpno=${param.categrpno}"><span class="glyphicon glyphicon-arrow-down"></span></A>         
 
         </TD>             
       </TR>

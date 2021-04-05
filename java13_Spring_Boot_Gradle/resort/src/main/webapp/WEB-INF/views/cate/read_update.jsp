@@ -83,7 +83,7 @@
       <TR>
         <TD class="td_bs">${cateVO.categrpno }</TD>
         <TD class="td_bs">${cateVO.seqno }</TD>
-        <TD class="td_bs_left"><A href="./read_update?cateno=${cateno }">${cateVO.name }</A></TD>
+        <TD class="td_bs_left"><A href="./read_update?cateno=${cateVO.cateno }&categrpno=${param.categrpno}">${cateVO.name }</A></TD>
         <TD class="td_bs">${cateVO.rdate.substring(0, 10) }</TD>
         <TD class="td_bs">
           <c:choose>

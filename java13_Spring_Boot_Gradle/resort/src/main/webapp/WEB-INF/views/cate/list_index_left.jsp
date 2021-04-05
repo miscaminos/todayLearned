@@ -35,9 +35,9 @@
  
 <fieldset class='categrp_cate_left' >
   <DIV>
-    <A href="${pageContext.request.contextPath}/contents/list_all" 
+    <A href="#" 
          class='categrp_name' style="margin-left: 0.2%;">전체 보기</A>
-    <span style='font-size:0.9em; color: #555555;'>(${total_count })</span>
+    <span style='font-size:0.9em; color: #555555;'></span>
   </DIV>
   <UL class='categrp_cate_list_left' >
     <c:forEach var="categrp_cate_name" items="${name_title_list}">

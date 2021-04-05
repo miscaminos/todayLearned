@@ -9,5 +9,6 @@
 	<typeAlias type="com.study.contents.ContentsVO" alias="ContentsVO" />
 	<typeAlias type="com.study.contents.Contents_UsersVO" alias="Contents_UsersVO"/>
 	<typeAlias type="com.study.users.UsersVO" alias="UsersVO" />
+	<typeAlias type="com.study.contents.ReplyDTO" alias="ReplyDTO" />
   </typeAliases>
 </configuration>

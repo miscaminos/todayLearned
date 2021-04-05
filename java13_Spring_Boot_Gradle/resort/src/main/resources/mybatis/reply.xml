@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.contents.ReplyMapper">
+	<delete id="bdelete" parameterType="int">
+		delete from reply2
+		where contentsno = #{contentsno}
+	</delete>
+	<select id="rcount" parameterType="int" resultType="int">
+		select count(*) from reply2
+		where contentsno = #{contentsno}
+	</select>
+	<insert id="create" parameterType="ReplyDTO">
+		insert into reply2(rnum,
+		content, regdate, id, contentsno)
+		values((select nvl(max(rnum),0)+1 from
+		reply2),
+		#{content}, sysdate, #{id}, #{contentsno})
+	</insert>
+
+	<select id="list" parameterType="Map" resultType="ReplyDTO">
+		select rnum, content, to_char(regdate,'yyyy-mm-dd') regdate, id, contentsno, r
+		FROM(
+			select rnum, content, regdate, id, contentsno, rownum r
+			FROM(
+				select rnum, content, regdate, id, contentsno
+				from REPLY2
+				where contentsno = #{contentsno}
+				order by rnum DESC
+			)
+		<![CDATA[
+		)WHERE r >= #{sno} and r <= #{eno}
+		]]>
+	</select>
+	
+	<select id="total" parameterType="int" resultType="int">
+	 	select count(*) from reply2
+	 	where contentsno = #{contentsno}
+	</select>
+	
+	<select id="read" parameterType="int" resultType="ReplyDTO">
+		select * from reply2
+		where rnum = #{rnum}
+	</select>
+	
+	<update id="update" parameterType="ReplyDTO">
+		update reply2
+		set content = #{content}
+		where rnum = #{rnum}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from reply2
+		where rnum = #{rnum}
+	</delete>
+</mapper>

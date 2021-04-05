@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
@@ -27,6 +29,7 @@ import com.study.cate.CateService;
 import com.study.cate.CateVO;
 import com.study.categrp.CategrpService;
 import com.study.categrp.CategrpVO;
+import com.study.users.UsersService;
 import com.study.utility.Utility;
 
 @Controller
@@ -43,13 +46,18 @@ public class ContentsCont {
 	@Autowired
 	@Qualifier("com.study.contents.ContentsServiceImpl")
 	private ContentsService service;
+	
+	@Autowired
+	@Qualifier("com.study.users.UsersServiceImpl")
+	private UsersService uservice;
+
 
 	public ContentsCont() {
 		System.out.println("--> ContentsCont created.");
 	}
 
 	@RequestMapping(value = "/contents/create", method = RequestMethod.GET)
-	public ModelAndView create(int cateno) {
+	public ModelAndView create(int cateno, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 
 		CateVO cateVO = this.cservice.read(cateno);
@@ -60,6 +68,10 @@ public class ContentsCont {
 
 		mav.setViewName("/contents/create");
 
+		if(!uservice.isMember(session)) {
+		    mav.addObject("url", "permission_msg"); // permission_msg.jsp, redirect parameter 적용
+		    mav.setViewName("redirect:/users/msg");
+		}
 		return mav;
 	}
 
@@ -166,7 +178,7 @@ public class ContentsCont {
 	}
 
 	@RequestMapping(value = "/contents/read", method = RequestMethod.GET)
-	public ModelAndView read(int contentsno) {
+	public ModelAndView read(int contentsno, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 
 		ContentsVO contentsVO = this.service.read(contentsno);
@@ -178,6 +190,25 @@ public class ContentsCont {
 		CategrpVO categrpVO = this.gservice.read(cateVO.getCategrpno());
 		mav.addObject("categrpVO", categrpVO);
 
+		/*댓글 관련 시작*/
+		int nPage = 1;
+		if(request.getParameter("nPage")!=null) {
+			nPage = Integer.parseInt(request.getParameter("nPage"));
+		}
+		int recordPerPage = 3;
+		
+		int sno = ((nPage - 1) * recordPerPage) + 1;
+		int eno = nPage * recordPerPage;
+		
+		Map map = new HashMap();
+		map.put("sno", sno);
+		map.put("eno", eno);
+		map.put("nPage", nPage);
+		
+		mav.addAllObjects(map);
+		
+		/* 댓글 처리 끝 */	
+		
 		mav.setViewName("/contents/read_img"); // /webapp/WEB-INF/views/contents/read_img.jsp
 
 		return mav;
@@ -285,12 +316,14 @@ public class ContentsCont {
 			//String user_dir = System.getProperty("user.dir");
 			//System.out.println("--> User dir: " + user_dir);
 			//String upDir = user_dir + "/src/main/resources/static/contents/storage/main_images/"; // ???? ???
+            String upDir = new ClassPathResource("/static/contents/storage/main_images").getFile().getAbsolutePath();
 
-			String upDir = new ClassPathResource("/static/contents/storage/main_images").getFile().getAbsolutePath();
-			MultipartFile mf = contentsVO.getFile1MF();
+            if(contentsVO.getFile1() !=null) {
+            
+            	Utility.deleteFile(upDir, contentsVO.getFile1());
+            	Utility.deleteFile(upDir, contentsVO.getThumb1());
 			
-			Utility.deleteFile(upDir, contentsVO.getFile1());
-			Utility.deleteFile(upDir, contentsVO.getThumb1());
+            }
 
 		}
 
@@ -361,6 +394,7 @@ public class ContentsCont {
 
 			//String upDir = System.getProperty("user.dir") + "/src/main/resources/static/contents/storage/main_images/";
 			String upDir = new ClassPathResource("/static/contents/storage/main_images").getFile().getAbsolutePath();
+			
 			MultipartFile mf = contentsVO.getFile1MF();
 			int size1 = (int)mf.getSize();
 			if (size1 > 0) {

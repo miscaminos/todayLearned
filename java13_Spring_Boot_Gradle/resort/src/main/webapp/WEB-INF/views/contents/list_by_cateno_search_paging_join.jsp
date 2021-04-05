@@ -24,11 +24,11 @@
   </DIV>
 
   <ASIDE class="aside_right">
-    <A href="./create?cateno=${param.cateno }">등록</A>
+    <A href="./create?cateno=${cateVO.cateno }">등록</A>
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_cateno_grid?cateno=${param.cateno }">갤러리형</A>
+    <A href="./list_by_cateno_grid?cateno=${cateVO.cateno }">갤러리형</A>
   </ASIDE> 
 
   <DIV class='menu_line'></DIV>
@@ -91,7 +91,7 @@
             <td style='vertical-align: middle; text-align: center;'>
               <c:choose>
                 <c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
-                  <a href="./read?contentsno=${contentsno}&word=${param.word }&nowPage=${param.nowPage}"><IMG src="${pageContext.request.contextPath }./storage/main_images/${thumb1 }" style="width: 120px; height: 80px;"></a> 
+                  <a href="./read?contentsno=${contentsno}&word=${param.word }&nowPage=${nowPage}"><IMG src="${pageContext.request.contextPath }./storage/main_images/${thumb1 }" style="width: 120px; height: 80px;"></a> 
                 </c:when>
                 <c:otherwise> <!-- 이미지가 아닌 일반 파일 -->
                   ${file1}
@@ -99,7 +99,7 @@
               </c:choose>
             </td>  
             <td style='vertical-align: middle;'>
-              <a href="./read?contentsno=${contentsno}&word=${param.word }&nowPage=${param.nowPage}">${title}</a> 
+              <a href="./read?contentsno=${contentsno}&word=${param.word }&nowPage=${nowPage}">${title}</a> 
             </td> 
             <td style='vertical-align: middle; text-align: center;'>${mid}</td>
             <td style='vertical-align: middle; text-align: center;'>${ip}</td>

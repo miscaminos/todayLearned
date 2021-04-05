@@ -84,7 +84,7 @@
       <DIV class='content_bottom_menu'>
         <button type="submit" class="btn btn-info">등록</button>
         <button type="button" 
-                    onclick="location.href='./list?categrpno=${param.categrpno}'" 
+                    onclick="location.href='./list?cateno=${param.cateno}'" 
                     class="btn btn-info">취소[목록]</button>
       </DIV>
        

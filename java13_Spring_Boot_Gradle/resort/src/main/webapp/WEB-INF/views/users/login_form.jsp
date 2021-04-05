@@ -31,6 +31,12 @@
  
 <DIV style='width: 80%; margin: 0px auto;'>
   <FORM name='frm' method='POST' action='./login' class="form-horizontal">
+      <input type="hidden" name="rurl" value="${param.rurl}">    
+    <input type="hidden" name="contentsno" value="${param.contentsno}">    
+    <input type="hidden" name="nowPage" value="${param.nowPage}">    
+    <input type="hidden" name="nPage" value="${param.nPage}">    
+    <input type="hidden" name="col" value="${param.col}">    
+    <input type="hidden" name="word" value="${param.word}">
   
     <div class="form-group">
       <label class="col-md-4 control-label" style='font-size: 0.8em;'>아이디</label>    

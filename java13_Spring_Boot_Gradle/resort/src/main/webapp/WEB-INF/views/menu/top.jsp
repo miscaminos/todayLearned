@@ -8,14 +8,14 @@
     <NAV class='top_menu'>
       <span style='padding-left: 0.5%;'></span>
       <A class='menu_link'  href='/' >힐링 리조트</A><span class='top_menu_sep'>&nbsp;</span>
-      <A class='menu_link'  href='/categrp/list'>카테고리 그룹</A><span class='top_menu_sep'>&nbsp;</span>    
-      <A class='menu_link'  href='/users/list'>회원 목록</A><span class='top_menu_sep'>&nbsp;</span>
       
       <c:choose>
         <c:when test="${sessionScope.id == null}">
           <A class='menu_link'  href='${root}/users/login' >Login</A><span class='top_menu_sep'> </span>
         </c:when>
         <c:otherwise>
+      		<A class='menu_link'  href='/categrp/list'>카테고리 그룹</A><span class='top_menu_sep'>&nbsp;</span>    
+      		<A class='menu_link'  href='/users/list'>회원 목록</A><span class='top_menu_sep'>&nbsp;</span>
           ${sessionScope.id } <A class='menu_link'  href='${root}/users/logout' >Logout</A><span class='top_menu_sep'> </span>
         </c:otherwise>
       </c:choose>      

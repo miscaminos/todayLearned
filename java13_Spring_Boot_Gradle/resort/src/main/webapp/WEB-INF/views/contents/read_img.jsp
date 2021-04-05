@@ -87,6 +87,87 @@
       </fieldset>
   </FORM>
   <br>
+  
+  <div class='row'> <!-- 댓글 목록 시작 -->
+ <div class="col-lg-12">
+ <!-- panel start-->
+<div class="panel panel-default">
+ 
+<div class="panel-heading">
+        <i class="fa fa-comments fa-fw"></i> 댓글
+        <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New
+                Reply</button>
+</div>
+ <div class="panel-body">
+         <ul class="chat list-group">
+                <li class="left clearfix" data-rno="12">
+                        <div>
+                                <div class="header">
+                                        <strong class="primary-font">user1</strong> <small
+                                                class="pull-right text-muted">2019-05-12</small>
+                                </div>
+                                <p>Good job!</p>
+ 
+                        </div>
+                </li>
+        </ul>
+        <!-- ul end  -->
+</div>
+<div class="panel-footer"></div>
+</div><!-- panel end-->
+</div><!--  col-lg-12 end -->
+</div><!-- row end -->
+</div><!-- container end -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"
+        aria-hidden="true">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>내용</label> 
+        <textarea cols="10" rows="3" class="form-control" name='content'>New Reply!!!!</textarea> 
+      </div>      
+    </div>
+<div class="modal-footer">
+<button id='modalModBtn' type="button" class="btn btn-warning">Modify</button>
+<button id='modalRemoveBtn' type="button" class="btn btn-danger">Remove</button>
+<button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
+<button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+</div>          </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- 댓글처리,서버와 비동기 통신 -->
+<script type="text/javascript" 
+        src="${pageContext.request.contextPath}/js/breply.js"></script>
+<!-- 페이지 로딩시 댓글 목록 처리-->
+ <!-- jstl내부 javascript에서 사용가능 -->
+  <script type="text/javascript">
+  var contentsno = "${contentsVO.contentsno}"; 
+  var sno = "${sno}";
+  var eno = "${eno}";
+ <!-- 댓글용 paging, 게시판 검색 -->
+  var nPage = "${nPage}";
+  var nowPage = "${param.nowPage}";
+  var colx = "${param.col}";
+  var wordx = "${param.word}";
+  <!-- 세션값 아용-->
+ var session_id = '${sessionScope.id}';
+  </script>
+ <!-- 비동기통신 요청후 전달되는 데이터를 화면에 출력게 하는 코드 --> 
+ <script type="text/javascript" 
+         src="${pageContext.request.contextPath}/js/replyprocess.js"></script>
 
 </body>
 

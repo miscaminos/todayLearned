@@ -28,7 +28,7 @@
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_cateno_grid1?cateno=${param.cateno }">갤러리형</A>
+    <A href="./list_by_cateno_grid?cateno=${param.cateno }">갤러리형</A>
   </ASIDE> 
  
   <div class='menu_line'></div>
@@ -64,16 +64,13 @@
         </c:choose>
         
         <br>            
-        <button type='button' 
-                    onclick="location.href='./list_by_cateno?cateno=${param.cateno}'"
-                    class="btn btn-info">유형 1: 목록(list_by_cateno)</button><br>
                           
         <button type='button' 
                     onclick="location.href='./list?cateno=${param.cateno}'"
-                    class="btn btn-info">유형 2: 목록 + 검색 + 페이징 + 회원 Join(list) 기본 구현 목록</button><br>       
+                    class="btn btn-info">유형 1: 목록 + 검색 + 페이징 + 회원 Join(list) 기본 구현 목록</button><br>       
         <button type='button' 
                     onclick="location.href='./list_by_cateno_grid?cateno=${param.cateno}'"
-                    class="btn btn-info">유형 3: 목록 + Grid 형태의 이미지 출력(list)</button><br>       
+                    class="btn btn-info">유형 2: 목록 + Grid 형태의 이미지 출력(list)</button><br>       
       </LI>
      </UL>
   </fieldset>

@@ -18,6 +18,7 @@ import com.study.cate.Categrp_Cate_join;
 import com.study.categrp.CategrpVO;
 import com.study.contents.ContentsVO;
 import com.study.contents.Contents_UsersVO;
+import com.study.contents.ReplyDTO;
 import com.study.users.UsersVO;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -61,7 +62,7 @@ public class DatabaseConfiguration {
 	      sqlSessionFactoryBean.setDataSource(dataSource);
 	      sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mybatis/**/*.xml"));   
 	      sqlSessionFactoryBean.setTypeAliases(new Class<?>[] {CategrpVO.class, CateVO.class, UsersVO.class, 
-	    	  													ContentsVO.class, Contents_UsersVO.class,Categrp_Cate_join.class});
+	    	  													ContentsVO.class, Contents_UsersVO.class,Categrp_Cate_join.class,ReplyDTO.class});
 	     
 	      //TypeAliasPackage 한개인 경우에는 아래와 같이 지정가능하다:
 	      //sqlSessionFactoryBean.setTypeAliasesPackage("com.study.categrp");

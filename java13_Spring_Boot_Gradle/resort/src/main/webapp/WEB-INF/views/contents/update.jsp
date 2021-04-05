@@ -35,11 +35,11 @@
   </DIV>
 
   <ASIDE class="aside_right">
-    <A href="./create?cateno=${cateVO.cateno }">등록</A>
+    <A href="./create?cateno=${param.cateno }">등록</A>
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_cateno_grid?cateno=${cateVO.cateno }">갤러리형</A>
+    <A href="./list_by_cateno_grid?cateno=${param.cateno }">갤러리형</A>
   </ASIDE> 
  
   <div class='menu_line'></div>
